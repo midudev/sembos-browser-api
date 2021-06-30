@@ -1,0 +1,22 @@
+{
+  "name": "sembos-browser-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RochDawid/sembos-browser-api.git"
+  },
+  "author": "Dawid Roch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RochDawid/sembos-browser-api/issues"
+  },
+  "homepage": "https://github.com/RochDawid/sembos-browser-api#readme",
+  "dependencies": {
+    "nodemon": "^2.0.8"
+  }
+}
