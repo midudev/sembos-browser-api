@@ -1,7 +1,7 @@
 import React from 'react';
 import './Hotel.css';
 
-function Hotel() {
+function Hotel({ hotelName }) {
     return (
         <div>
             Hotel
