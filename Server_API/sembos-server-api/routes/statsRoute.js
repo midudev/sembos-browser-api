@@ -3,35 +3,49 @@ const sha1 = require('sha1');
 const fetch = require('node-fetch');
 var router = express.Router();
 
-router.get('/', async (req, res) => {
-    const isos = ['es', 'fr', 'it'];
-    var statEs, statFr, statIt, statsAll = "";
+const isos = ['es', 'fr', 'it'];
 
-    await isos.forEach(async (iso) => {
-        const apiUrl = `https://developers.sembo.com/sembo/hotels-test/countries/${iso}/hotels`;
-        const headers = {
-            'X-API-Key': sha1('david.roch.2001@gmail.com'),
-            'Host': 'developers.sembo.com'
-        };
+class Stat {
+    constructor(country, average, hotel1, hotel2, hotel3) {
+        this.country = country;
+        this.average = average;
+        this.hotel1 = hotel1;
+        this.hotel2 = hotel2;
+        this.hotel3 = hotel3;
+    }
+}
+var statsReport = [Stat, Stat, Stat];
 
-        var correctlyFetched = false;
-        var dataApi = null;
+async function fetchIndividualData(iso) {
+    const headers = {
+        'X-API-Key': sha1('david.roch.2001@gmail.com'),
+        'Host': 'developers.sembo.com'
+    };
+    const apiUrl = `https://developers.sembo.com/sembo/hotels-test/countries/${iso}/hotels`;
+    var dataApi = null;
 
-        while(!correctlyFetched) {
-            dataApi = await fetch(apiUrl, {
-                method: 'GET',
-                headers: headers
-            })
-            .then(response => {
-                if (response.ok) {
-                    correctlyFetched = true;
-                    return response.json();
-                }     
-            });
-        }
+    var correctlyFetched = false;
+    while (!correctlyFetched) {
+        dataApi = await fetch(apiUrl, {
+            method: 'GET',
+            headers: headers
+        })
+        .then(response => {
+            if (response.ok) {
+                correctlyFetched = true;
+                return response.json();
+            }
+        });
+    }
 
-        var score, first, second, third = 0;
-        var hotel1, hotel2, hotel3 = "";
+    return dataApi;
+}
+
+async function fetchAllData(isos) {
+    await Promise.all(isos.map(async (iso, index) => {
+        const dataApi = await fetchIndividualData(iso);
+        var score = 0, first = 0, second = 0, third = 0;
+        var hotel1 = "", hotel2 = "", hotel3 = "";
         dataApi.map((hotel) => {
             if (hotel.score > first) {
                 third = second;
@@ -47,12 +61,18 @@ router.get('/', async (req, res) => {
                 hotel3 = hotel.name;
             }
             score += hotel.score;
-        })
-        var meanScore = score/dataApi.length;
-        var statsIso = `${iso}: ${meanScore} average, Top 3: ${hotel1}, ${hotel2}, ${hotel3}\n`;
-    });
+        });
 
-    console.log(statsIso);
+        statsReport[index] = new Stat(iso, score / dataApi.length, hotel1, hotel2, hotel3);
+    }));
+
+    return statsReport;
+}
+
+router.get('/', async (req, res) => {
+    const data = await fetchAllData(isos);
+
+    return res.send(data);
 });
 
 module.exports = router;
