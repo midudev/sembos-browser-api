@@ -71,8 +71,8 @@ async function fetchAllData(isos) {
 
 router.get('/', async (req, res) => {
     const data = await fetchAllData(isos);
-
-    return res.json(data);
+    
+    res.json(data);
 });
 
 module.exports = router;
