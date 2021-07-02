@@ -41,12 +41,6 @@ function Flag({ country }) {
   }
 }
 
-function Hotel({ name }) {
-  name = name.toUpperCase();
-  
-  return <div className="hotel-container">{name}</div>;
-}
-
 function Stat({ country, average, hotel1, hotel2, hotel3 }) {
   return (
       <div className="stat">
@@ -57,16 +51,13 @@ function Stat({ country, average, hotel1, hotel2, hotel3 }) {
           <div className="stat-hotels">
             <span>BEST HOTELS</span>
               <div className="stat-hotels-top">
-                  <span className="">1.-</span>
-                  <Hotel name={hotel1} />
+                  <span className="">1.- {hotel1.toUpperCase()}</span>
               </div>
               <div className="stat-hotels-top">
-                  <span className="">2.-</span>
-                  <Hotel name={hotel2} />
+                  <span className="">2.- {hotel2.toUpperCase()}</span>
               </div>
               <div className="stat-hotels-top">
-                  <span className="">3.-</span>
-                  <Hotel name={hotel3} />
+                  <span className="">3.- {hotel3.toUpperCase()}</span>
               </div>
           </div>
       </div>
