@@ -1,3 +1,42 @@
-.stat-country-image{
-    border-radius: 25px;
+.flag-image{
+    border-radius: 50px;
+    position: relative;
+}
+
+.flag-name {
+    padding: 5px;
+}
+
+.hotel-container {
+    border: 1px solid #121212;
+    border-radius: 10px;
+    width: fit-content;
+    margin-left: 25px;
+    padding: 5px;
+}
+
+.stat {
+    margin-bottom: 25px;
+    border: 3px solid #048abf;
+    padding: 25px;
+    border-radius: 50px;
+}
+
+.stat:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.stat-hotels {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.stat-hotels-top {
+    display: flex;
+    flex-direction: row;
+    padding-left: 25px;
+    padding-top: 10px;
 }

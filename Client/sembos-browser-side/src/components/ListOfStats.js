@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import './ListOfStats.css';
 import getStats from '../services/stats';
 import Stat from './Stat';
+import { trackPromise } from 'react-promise-tracker';
 
-function ListOfHotels() {
+function ListOfStats() {
     const [stats, setStats] = useState([]);
 
     useEffect(() => {
-        getStats()
-        .then(data => setStats(data));
+        trackPromise(getStats().then(data => setStats(data)));
     }, []);
     
     return (
@@ -18,4 +17,4 @@ function ListOfHotels() {
     )
 }
 
-export default ListOfHotels;
+export default ListOfStats;

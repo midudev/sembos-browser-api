@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+  font-family: "Roboto";
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.App h1 {
+  margin-bottom: 50px;
+}
+
+@keyframes ldio-mc8h4xamq2 {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.ldio-mc8h4xamq2 div {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 20px solid #3e6d8d;
+  border-top-color: transparent;
+  border-radius: 50%;
+}
+.ldio-mc8h4xamq2 div {
+  animation: ldio-mc8h4xamq2 1s linear infinite;
+  top: 100px;
+  left: 100px;
+}
+.loadingio-spinner-rolling-kidtxnnktti {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  overflow: hidden;
+  background: none;
+}
+.ldio-mc8h4xamq2 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
+}
+.ldio-mc8h4xamq2 div {
+  box-sizing: content-box;
+}
