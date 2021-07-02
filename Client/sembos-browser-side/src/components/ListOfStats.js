@@ -12,7 +12,7 @@ function ListOfStats() {
     
     return (
         <div className="listOfStats">
-            {stats.map(stat => <Stat country={stat.country} hotel1={stat.hotel1} hotel2={stat.hotel2} hotel3={stat.hotel3}></Stat>)}
+            {stats.map(stat => <Stat country={stat.country} average={stat.average} hotel1={stat.hotel1} hotel2={stat.hotel2} hotel3={stat.hotel3}></Stat>)}
         </div>
     )
 }
