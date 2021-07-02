@@ -44,14 +44,18 @@ function Flag({ country }) {
 function Hotel({ name }) {
   name = name.toUpperCase();
   
-  return <div className="hotel-name">{name}</div>;
+  return <div className="hotel-container">{name}</div>;
 }
 
-function Stat({ country, hotel1, hotel2, hotel3 }) {
+function Stat({ country, average, hotel1, hotel2, hotel3 }) {
   return (
       <div className="stat">
-          <Flag country={country} />
+        <div className="stat-info">
+          <Flag className="stat-info-country" country={country} />
+          <span className="stat-info-average">Average: {average}⭐</span>
+        </div>
           <div className="stat-hotels">
+            <span>BEST HOTELS</span>
               <div className="stat-hotels-top">
                   <span className="">1.-</span>
                   <Hotel name={hotel1} />
@@ -65,7 +69,6 @@ function Stat({ country, hotel1, hotel2, hotel3 }) {
                   <Hotel name={hotel3} />
               </div>
           </div>
-          
       </div>
   );
 }

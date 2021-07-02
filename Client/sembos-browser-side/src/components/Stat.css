@@ -3,40 +3,47 @@
     position: relative;
 }
 
-.flag-name {
-    padding: 5px;
-}
-
-.hotel-container {
-    border: 1px solid #121212;
-    border-radius: 10px;
-    width: fit-content;
-    margin-left: 25px;
-    padding: 5px;
-}
-
 .stat {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     margin-bottom: 25px;
     border: 3px solid #048abf;
-    padding: 25px;
-    border-radius: 50px;
+    border-radius: 20px;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+    transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+    padding: 14px 80px 18px 36px;
+    cursor: pointer;
 }
 
-.stat:hover {
-    background-color: lightgray;
-    cursor: pointer;
+.stat:hover{
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .stat-hotels {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-top: 10px;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: 30px;
+}
+
+.stat-hotels > span {
+    font-weight: 800;
+    position: relative;
+    top: -10px;
 }
 
 .stat-hotels-top {
     display: flex;
     flex-direction: row;
-    padding-left: 25px;
-    padding-top: 10px;
+    align-content: center;
+    width: 100%;
 }
